@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>AnagraficaMaven</display-name>
+  <welcome-file-list>
+    <welcome-file>homepage.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>FrequenzaServlet</display-name>
+    <servlet-name>FrequenzaServlet</servlet-name>
+    <servlet-class>servlet.FrequenzaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FrequenzaServlet</servlet-name>
+    <url-pattern>/FrequenzaServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SedeServlet</display-name>
+    <servlet-name>SedeServlet</servlet-name>
+    <servlet-class>servlet.SedeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SedeServlet</servlet-name>
+    <url-pattern>/SedeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>StoricoServlet</display-name>
+    <servlet-name>StoricoServlet</servlet-name>
+    <servlet-class>servlet.StoricoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StoricoServlet</servlet-name>
+    <url-pattern>/StoricoServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
