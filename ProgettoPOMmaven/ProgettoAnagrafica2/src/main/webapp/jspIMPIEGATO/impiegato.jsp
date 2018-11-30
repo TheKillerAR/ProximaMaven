@@ -53,6 +53,32 @@
 		<input type="text" name="nome" /> <br> <br> <input
 			type="submit" value="Conferma" /> <br>
 			</form>
+			
+		---------------------------------------------------------------------------
+		
+		<h2>Cerca impiegato tramite il cognome</h2>
+		
+		<form action="${pageContext.request.contextPath}/ImpiegatoServlet" method="post">
+
+		<input type='hidden' name="funzione" value="cercacognome">
+
+		<h4>Inserisci il cognome dell'impiegato</h4>
+		<input type="text" name="cognome" /> <br> <br> <input
+			type="submit" value="Conferma" /> <br>
+			</form>
+
+		---------------------------------------------------------------------------
+		
+		<h2>Cerca impiegato tramite il codice fiscale</h2>
+		
+		<form action="${pageContext.request.contextPath}/ImpiegatoServlet" method="post">
+
+		<input type='hidden' name="funzione" value="cercacf">
+
+		<h4>Inserisci il cognome dell'impiegato</h4>
+		<input type="text" name="cf" /> <br> <br> <input
+			type="submit" value="Conferma" /> <br>
+			</form>
 
 		---------------------------------------------------------------------------
 

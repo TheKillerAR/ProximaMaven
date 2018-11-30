@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dto.CorsoDTO;
 import dto.FrequenzaDTO;
 import ejb.Frequenza_ejbRemote;
 
@@ -44,6 +46,8 @@ public class FrequenzaServlet extends HttpServlet {
 			
 			freejbr.insertFrequenzajpa(fdto);
 			
+			request.getRequestDispatcher("/jspCORSO/rsinseriscifrequenze.jsp").forward(request, response);
+			
 		}else if (fn.equals("aggiorna")){
 			
 			String idedizione2 = request.getParameter("idedizione");			
@@ -58,9 +62,18 @@ public class FrequenzaServlet extends HttpServlet {
 			fdto.setIdimp(idimp);
 			
 			freejbr.updateFrequenzajpa(fdto);
+			
+			request.getRequestDispatcher("/jspCORSO/rsmostratuttefrequenza.jsp").forward(request, response);
+			
 		}else if(fn.equals("cercaid")) {
 			
 			int idfrequenza = Integer.parseInt(request.getParameter("idfrequenza"));
+			
+			FrequenzaDTO freCercato = freejbr.cercaId(idfrequenza);
+			ArrayList<FrequenzaDTO> listaFrequenza = new ArrayList<FrequenzaDTO>();
+			listaFrequenza.add(freCercato);
+			request.getSession().setAttribute("listaFrequenza", listaFrequenza);
+			request.getRequestDispatcher("/jspCORSO/rsmostratuttefrequenze.jsp").forward(request, response);
 		}
 	}
 

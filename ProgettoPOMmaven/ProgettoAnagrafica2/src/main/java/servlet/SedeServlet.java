@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -25,8 +26,6 @@ public class SedeServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
 		String fn = request.getParameter("funzione");
 		
 		if (fn.equals("inserisci")) {
@@ -46,6 +45,8 @@ public class SedeServlet extends HttpServlet {
 			sdto.setCap(cap);
 			
 			sedejbr.insertSedejpa(sdto);
+			
+			request.getRequestDispatcher("/jspCORSO/rsinseriscisedi.jsp").forward(request, response);
 			
 		}else if (fn.equals("aggiorna")){
 			
@@ -68,6 +69,13 @@ public class SedeServlet extends HttpServlet {
 		}else if(fn.equals("cercaid")) {
 			
 			int idsede = Integer.parseInt(request.getParameter("idsede"));
+			
+			SedeDTO sedCercato = sedejbr.cercaId(idsede);
+			ArrayList<SedeDTO> listaSede = new ArrayList<SedeDTO>();
+			listaSede.add(sedCercato);
+			request.getSession().setAttribute("listaSede", listaSede);
+			request.getRequestDispatcher("/jspCORSO/rsmostratuttesedi.jsp").forward(request, response);
+		
 		
 		}
 	}

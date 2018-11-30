@@ -17,7 +17,7 @@ public class ContoDAO {
 	public static Corso modificaConto(int idconto, int idimpiegato, double saldo, Date datainizio)
 			throws SQLException, NamingException {
 
-		Connection con = ((DataSource) new InitialContext().lookup("java:jboss/datasources/MYDSSQL")).getConnection();
+		Connection con = ((DataSource) new InitialContext().lookup("java:jboss/datasources/contocorrente_roberti")).getConnection();
 
 		Corso co = new Corso();
 
@@ -40,7 +40,7 @@ public class ContoDAO {
 
 	public static ArrayList<Corso> mostraConti() throws SQLException, NamingException {
 
-		Connection con = ((DataSource) new InitialContext().lookup("java:jboss/datasources/MYDSSQL")).getConnection();
+		Connection con = ((DataSource) new InitialContext().lookup("java:jboss/datasources/contocorrente_roberti")).getConnection();
 
 		ArrayList<Corso> coList = new ArrayList<Corso>();
 
@@ -67,7 +67,7 @@ public class ContoDAO {
 
 	public static Corso cercaIdconto(int idconto) throws SQLException, NamingException {
 
-		Connection con = ((DataSource) new InitialContext().lookup("java:jboss/datasources/MYDSSQL")).getConnection();
+		Connection con = ((DataSource) new InitialContext().lookup("java:jboss/datasources/contocorrente_roberti")).getConnection();
 
 		Corso co = new Corso();
 
@@ -91,7 +91,7 @@ public class ContoDAO {
 
 	public static Corso cercaIdimpiegato(int idimpiegato) throws SQLException, NamingException {
 
-		Connection con = ((DataSource) new InitialContext().lookup("java:jboss/datasources/MYDSSQL")).getConnection();
+		Connection con = ((DataSource) new InitialContext().lookup("java:jboss/datasources/contocorrente_roberti")).getConnection();
 
 		Corso co = new Corso();
 
@@ -116,7 +116,7 @@ public class ContoDAO {
 	public static void inserisciConto(int idimpiegato, double saldo, Date datainizio) {
 
 		try {
-			Connection con = ((DataSource) new InitialContext().lookup("java:jboss/datasources/MYDSSQL"))
+			Connection con = ((DataSource) new InitialContext().lookup("java:jboss/datasources/contocorrente_roberti"))
 					.getConnection();
 
 			String qry = "INSERT INTO conto (idimpiegato, saldo, datainizio) VALUES (?, ?, ?)";

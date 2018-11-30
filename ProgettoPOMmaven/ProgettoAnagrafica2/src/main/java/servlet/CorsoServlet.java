@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -9,8 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.ImpiegatoDao;
 import dto.CorsoDTO;
 import ejb.Corso_ejbRemote;
+import model.Impiegato;
 
 
 @WebServlet("/CorsoServlet")
@@ -26,9 +30,7 @@ public class CorsoServlet extends HttpServlet {
     }
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
+				
 		String fn = request.getParameter("funzione");
 		
 		if (fn.equals("inserisci")) {
@@ -40,6 +42,8 @@ public class CorsoServlet extends HttpServlet {
 			cdto.setDescrizione(descrizione);
 			
 			corejbr.insertCorsojpa(cdto);
+			
+			request.getRequestDispatcher("/jspCORSO/rsinseriscicorsi.jsp").forward(request, response);
 		
 		}else if (fn.equals("aggiorna")){
 			
@@ -55,9 +59,14 @@ public class CorsoServlet extends HttpServlet {
 			
 			int idcorso = Integer.parseInt(request.getParameter("idcorso")); 
 		
-		}
-//		else if(fn.equals("elimina")) {}
+			CorsoDTO corCercato = corejbr.cercaId(idcorso);
+			ArrayList<CorsoDTO> listaCorso = new ArrayList<CorsoDTO>();
+			listaCorso.add(corCercato);
+			request.getSession().setAttribute("listaCorso", listaCorso);
+			request.getRequestDispatcher("/jspCORSO/rsmostratutticorsi.jsp").forward(request, response);
+		
 	}
+}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

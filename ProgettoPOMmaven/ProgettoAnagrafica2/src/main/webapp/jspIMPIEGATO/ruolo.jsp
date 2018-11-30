@@ -29,7 +29,7 @@
 <body>
 
 
-	<form action="RuoloServlet" method="post">
+	<form action="${pageContext.request.contextPath}/RuoloServlet" method="post">
 
 
 		<h2>Cerca ruolo</h2>

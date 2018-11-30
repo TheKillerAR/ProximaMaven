@@ -29,7 +29,7 @@
 <body>
 
 
-	<form action="StoricoServlet" method="post">
+	<form action="${pageContext.request.contextPath}/StoricoServlet" method="post">
 
 
 <!-- 		<h2>Cerca storico</h2> -->

@@ -28,7 +28,7 @@ public class ImpiegatoServlet extends HttpServlet {
 
 		String funzione = request.getParameter("funzione");
 		
-		System.out.println("la fuzione è "+funzione);
+//		System.out.println("la fuzione è "+funzione);
 
 		if (funzione.equals("inserisci")) {
 
@@ -103,8 +103,36 @@ public class ImpiegatoServlet extends HttpServlet {
 		else if (funzione.equals("cercacognome")) {
 
 			String cognome = request.getParameter("cognome");
+			
+			ArrayList<Impiegato> listaimpiegati = null;
+			
 			try {
-				ImpiegatoDao.searchCognome(cognome);
+				listaimpiegati = ImpiegatoDao.searchCognome(cognome);
+				
+				request.getSession().setAttribute("listaImp", listaimpiegati);
+				
+				request.getRequestDispatcher("/jspIMPIEGATO/rsmostratuttiimpiegati.jsp").forward(request, response);
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		else if (funzione.equals("cercacf")) {
+
+			String cf = request.getParameter("cf");
+			
+			ArrayList<Impiegato> listaimpiegati = null;
+			
+			try {
+				Impiegato impCercato = ImpiegatoDao.searchCf(cf);
+				ArrayList<Impiegato> listaImpiegato = new ArrayList<Impiegato>();
+				listaImpiegato.add(impCercato);
+				
+				request.getSession().setAttribute("listaImp", listaImpiegato);
+				
+				request.getRequestDispatcher("/jspIMPIEGATO/rsmostratuttiimpiegati.jsp").forward(request, response);
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

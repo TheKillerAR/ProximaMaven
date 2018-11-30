@@ -144,7 +144,7 @@ public class ImpiegatoDao {
 				imp.setCognome(res.getString("cognome"));
 				imp.setCf(res.getString("cf"));
 
-				System.out.println(imp);
+				impList.add(imp);
 			}
 		} catch (Exception e) {
 
@@ -177,7 +177,7 @@ public class ImpiegatoDao {
 				imp.setNome(res.getString("nome"));
 				imp.setCognome(res.getString("cognome"));
 
-				System.out.println(imp);
+//				System.out.println(imp);
 
 			}
 

@@ -27,7 +27,7 @@
 
 
 <body>
-	<form action="CorsoServlet" method="post">
+	<form action="${pageContext.request.contextPath}/CorsoServlet" method="post">
 
 
 		<h2>Cerca corso</h2>

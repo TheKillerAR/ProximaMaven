@@ -5,7 +5,7 @@
 	<!-- CONNESSIONE CON DATASOURCE -->
 
 	<persistence-unit name="Hib4PU" transaction-type="JTA">
-		<jta-data-source>java:jboss/datasources/CORSO</jta-data-source>
+		<jta-data-source>java:jboss/datasources/corso_roberti</jta-data-source>
 		
 		<class>modeljpa.Corso</class>
 		<class>modeljpa.Docenti</class>

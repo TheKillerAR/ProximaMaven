@@ -10,7 +10,7 @@ public class DBConnection {
 
 		String driver = "com.mysql.jdbc.Driver";
 
-		String url = "jdbc:mysql://localhost:3306/appazienda?useLegacyDatetimeCode=false&serverTimezone=Europe/Rome&useSSL=false";
+		String url = "jdbc:mysql://localhost:3306/anagrafica_roberti?useLegacyDatetimeCode=false&serverTimezone=Europe/Rome&useSSL=false";
 
 		try {
 			Class.forName(driver);
@@ -19,7 +19,7 @@ public class DBConnection {
 			e.printStackTrace();
 		}
 
-		Connection con = DriverManager.getConnection(url, "root", "1234");
+		Connection con = DriverManager.getConnection(url, "corso", "corso2016");
 
 		return con;
 

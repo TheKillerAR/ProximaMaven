@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dto.CorsoDTO;
 import dto.EdizioneDTO;
 import ejb.Edizione_ejbRemote;
 
@@ -53,6 +55,8 @@ public class EdizioneServlet extends HttpServlet {
 			
 			ediejbr.insertEdizionejpa(edto);
 			
+			request.getRequestDispatcher("/jspCORSO/rsinserciedizione.jsp").forward(request, response);
+			
 		}else if (fn.equals("aggiorna")){
 			
 			String numero2 = request.getParameter("numero");			
@@ -78,6 +82,12 @@ public class EdizioneServlet extends HttpServlet {
 		}else if(fn.equals("cercaid")) {
 			
 			int idedizione = Integer.parseInt(request.getParameter("idedizione"));
+			
+			EdizioneDTO ediCercato = ediejbr.cercaId(idedizione);
+			ArrayList<EdizioneDTO> listaEdizione = new ArrayList<EdizioneDTO>();
+			listaEdizione.add(ediCercato);
+			request.getSession().setAttribute("listaEdizione", listaEdizione);
+			request.getRequestDispatcher("/jspCORSO/rsmostratutteedizioni.jsp").forward(request, response);
 		
 		}
 	}

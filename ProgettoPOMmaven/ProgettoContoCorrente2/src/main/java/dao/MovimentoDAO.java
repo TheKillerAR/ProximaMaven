@@ -19,7 +19,7 @@ public class MovimentoDAO {
 	public static Movimento creaMovimento(int idconto, int idmovimento, double importo, Date datamovimento)
 			throws SQLException, NamingException {
 
-		Connection con = ((DataSource) new InitialContext().lookup("java:jboss/datasources/MYDSSQL")).getConnection();
+		Connection con = ((DataSource) new InitialContext().lookup("java:jboss/datasources/contocorrente_roberti")).getConnection();
 
 		Movimento mov = new Movimento();
 
@@ -56,7 +56,7 @@ public class MovimentoDAO {
 
 	public static ArrayList<Movimento> mostraMovimenti() throws SQLException, NamingException {
 
-		Connection con = ((DataSource) new InitialContext().lookup("java:jboss/datasources/MYDSSQL")).getConnection();
+		Connection con = ((DataSource) new InitialContext().lookup("java:jboss/datasources/contocorrente_roberti")).getConnection();
 
 		ArrayList<Movimento> movList = new ArrayList<Movimento>();
 
