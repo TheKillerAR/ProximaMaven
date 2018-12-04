@@ -28,10 +28,33 @@
 
 <body>
 
+<h2>Inserisci impiegato spring</h2>
+		
+		<form:form class="form-horizontal" method="POST" action="ImpiegatoSpring" model Attribute="impform"/>
+
+		<input type='hidden' name="funzione" value="inserisci">
+
+		<h4>Inserisci codice fiscale</h4>
+		<form:input type="text" class="form-control" placeholder="cf" path="cf"/>
+
+		<h4>Inserisci nome</h4>
+		<form:input type="text" class="form-control" placeholder="nome" path="nome"/>
+
+		<h4>Inserisci cognome</h4>
+		<form:input type="text" class="form-control" placeholder="cognome" path="cognome"/> <br> <br>
+		
+		 <input type="submit" value="Conferma" /> <br>
+			
+		</form>
+
+
+
+	///////////////////////////////////////////////////////////////////////////////////
+
 
 	<form action="${pageContext.request.contextPath}/ImpiegatoServlet" method="post">
 
-
+		
 		<h2>Cerca impiegato</h2>
 
 		<input type='hidden' name="funzione" value="cercaid">

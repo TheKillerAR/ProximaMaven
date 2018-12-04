@@ -34,7 +34,7 @@
 
 	<br>
 
-	<a href="${pageContext.request.contextPath}/jspIMPIEGATO/impiegato.jsp">Sezione Impiegati</a>
+	<a href="impiegato">Sezione Impiegati</a>
 
 	<br> <br>
 

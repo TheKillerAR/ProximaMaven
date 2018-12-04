@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<h1>L'esecuzione è andata a buon fine</h1>
+<h1>L'operazione è andata a buon fine</h1>
 
 </body>
 </html>
