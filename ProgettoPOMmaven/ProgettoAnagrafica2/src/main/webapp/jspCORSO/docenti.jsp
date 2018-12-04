@@ -27,7 +27,7 @@
 
 
 <body>
-	<form action="DocentiServlet" method="post">
+	<form action="${pageContext.request.contextPath}/DocentiServlet" method="post">
 
 		<h2>Cerca docente</h2>
 

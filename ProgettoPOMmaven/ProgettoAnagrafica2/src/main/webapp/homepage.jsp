@@ -34,16 +34,16 @@
 
 	<br>
 
-	<a href="jspIMPIEGATO/impiegato.jsp">Sezione impiegati</a>
+	<a href="${pageContext.request.contextPath}/jspIMPIEGATO/impiegato.jsp">Sezione Impiegati</a>
 
 	<br> <br>
 
 
-	<a href="jspCORSO/homepagecorso.jsp">Sezione Corsi</a>
+	<a href="${pageContext.request.contextPath}/jspCORSO/homepagecorso.jsp">Sezione Corsi</a>
 
 	<br> <br>
 
-	<a href="jspCONTO/homepageconto.jsp">Sezione Conti</a>
+	<a href="${pageContext.request.contextPath}/jspCONTO/homepageconto.jsp">Sezione Conti</a>
 
 
 

@@ -51,7 +51,7 @@ public class ImpiegatoDao {
 		Impiegato imp = new Impiegato();
 		Connection con = null;
 		try {
-			String qry = "SELECT * FROM IMPIEGATO WHERE ID = ?";
+			String qry = "SELECT * FROM impiegato WHERE ID = ?";
 
 			con = DBConnection.createConnection();
 

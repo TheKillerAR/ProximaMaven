@@ -28,10 +28,10 @@
 
 <body>
 
-	<form action="EdizioneServlet" method="post">
+	<form action="${pageContext.request.contextPath}/EdizioneServlet" method="post">
 
 
-		<h2>Cerca edizione</h2>
+		<h2>Cerca edizione tramite id</h2>
 
 		<input type='hidden' name="funzione" value="cercaid">
 

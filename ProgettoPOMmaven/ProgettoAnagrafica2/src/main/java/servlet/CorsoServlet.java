@@ -57,7 +57,7 @@ public class CorsoServlet extends HttpServlet {
 						
 		}else if(fn.equals("cercaid")) {
 			
-			int idcorso = Integer.parseInt(request.getParameter("idcorso")); 
+			int idcorso = Integer.parseInt(request.getParameter("idcorso"));
 		
 			CorsoDTO corCercato = corejbr.cercaId(idcorso);
 			ArrayList<CorsoDTO> listaCorso = new ArrayList<CorsoDTO>();

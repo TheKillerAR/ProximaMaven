@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dto.CorsoDTO;
 import dto.DocentiDTO;
 import ejb.Docenti_ejbRemote;
 
@@ -59,6 +61,12 @@ public class DocentiServlet extends HttpServlet {
 		}else if(fn.equals("cercaid")) {
 			
 			int iddocente = Integer.parseInt(request.getParameter("iddocente")); 
+			
+			DocentiDTO docCercato = docejbr.cercaId(iddocente);
+			ArrayList<DocentiDTO> listaDocente = new ArrayList<DocentiDTO>();
+			listaDocente.add(docCercato);
+			request.getSession().setAttribute("listaDocente", listaDocente);
+			request.getRequestDispatcher("/jspCORSO/rsmostratuttidocenti.jsp").forward(request, response);
 		}
 	}
 

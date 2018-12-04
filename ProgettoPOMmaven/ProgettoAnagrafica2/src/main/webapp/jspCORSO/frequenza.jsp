@@ -29,7 +29,7 @@
 <body>
 
 
-	<form action="FrequenzaServlet" method="post">
+	<form action="${pageContext.request.contextPath}/FrequenzaServlet" method="post">
 
 
 		<h2>Cerca frequenza</h2>

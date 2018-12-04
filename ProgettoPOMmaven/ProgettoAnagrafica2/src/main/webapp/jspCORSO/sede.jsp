@@ -29,7 +29,7 @@
 <body>
 
 
-	<form action="SedeServlet" method="post">
+	<form action="${pageContext.request.contextPath}/SedeServlet" method="post">
 
 
 		<h2>Cerca sede</h2>

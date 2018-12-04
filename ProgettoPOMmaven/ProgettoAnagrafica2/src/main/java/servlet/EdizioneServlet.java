@@ -83,6 +83,8 @@ public class EdizioneServlet extends HttpServlet {
 			
 			int idedizione = Integer.parseInt(request.getParameter("idedizione"));
 			
+			System.out.println(idedizione);
+			
 			EdizioneDTO ediCercato = ediejbr.cercaId(idedizione);
 			ArrayList<EdizioneDTO> listaEdizione = new ArrayList<EdizioneDTO>();
 			listaEdizione.add(ediCercato);
