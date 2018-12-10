@@ -66,7 +66,6 @@ public class ImpiegatoDao {
 				imp.setNome(res.getString("nome"));
 				imp.setCognome(res.getString("cognome"));
 
-
 			}
 
 		} catch (Exception e) {
@@ -259,5 +258,36 @@ public class ImpiegatoDao {
 			con.close();
 
 		}
+	}
+
+	public boolean delete(int id) {
+		Connection con = null;
+
+		java.sql.PreparedStatement preparedStatement = null;
+
+		String qry = "DELETE FROM impiegato WHERE id= ?";
+
+		try {
+			con = DBConnection.createConnection();
+
+			preparedStatement = (PreparedStatement) con.prepareStatement(qry);
+
+			preparedStatement.setInt(1, id);
+
+			preparedStatement.executeUpdate();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+		}
+
+		return true;
 	}
 }

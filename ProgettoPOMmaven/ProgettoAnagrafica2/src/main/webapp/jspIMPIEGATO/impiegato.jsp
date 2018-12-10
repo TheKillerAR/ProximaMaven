@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -28,130 +29,142 @@
 
 <body>
 
-<h2>Inserisci impiegato spring</h2>
-		
-		<form:form class="form-horizontal" method="POST" action="ImpiegatoSpring" model Attribute="impform"/>
+	<h2>Inserisci impiegato</h2>
 
-		<input type='hidden' name="funzione" value="inserisci">
+	<form:form class="form-horizontal" method="POST"
+		action="Insertimpiegato" modelAttribute="impForm">
 
 		<h4>Inserisci codice fiscale</h4>
-		<form:input type="text" class="form-control" placeholder="cf" path="cf"/>
+		<form:input type="text" class="form-control"
+			placeholder="codice fiscale" path="cf" />
 
 		<h4>Inserisci nome</h4>
-		<form:input type="text" class="form-control" placeholder="nome" path="nome"/>
+		<form:input type="text" class="form-control" placeholder="nome"
+			path="nome" />
 
 		<h4>Inserisci cognome</h4>
-		<form:input type="text" class="form-control" placeholder="cognome" path="cognome"/> <br> <br>
-		
-		 <input type="submit" value="Conferma" /> <br>
-			
-		</form>
+		<form:input type="text" class="form-control" placeholder="cognome"
+			path="cognome" />
+		<br>
+		<br>
+
+		<input type="submit" value="Conferma" />
+		<br>
+
+	</form:form>
 
 
 
 	///////////////////////////////////////////////////////////////////////////////////
 
 
-	<form action="${pageContext.request.contextPath}/ImpiegatoServlet" method="post">
+	<h2>Cerca impiegato tramite id</h2>
 
-		
-		<h2>Cerca impiegato</h2>
-
-		<input type='hidden' name="funzione" value="cercaid">
+	<form:form class="form-horizontal" method="POST"
+		action="Searchidimpiegato" modelAttribute="impForm">
 
 		<h4>Inserisci l' id dell'impiegato</h4>
-		<input type="text" name="id" /> <br> <br> <input
-			type="submit" value="Conferma" /> <br>
-			</form>
+		<form:input type="text" class="form-control" placeholder="id"
+			path="id" />
 
-		---------------------------------------------------------------------------
-		
-		<h2>Cerca impiegato tramite il nome</h2>
-		
-		<form action="${pageContext.request.contextPath}/ImpiegatoServlet" method="post">
+		<br>
+		<br>
 
-		<input type='hidden' name="funzione" value="cercanome">
+		<input type="submit" value="Conferma" />
+		<br>
+	</form:form>
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+	<h2>Cerca impiegato tramite il nome</h2>
+
+	<form:form class="form-horizontal" method="POST"
+		action="Searchnomeimpiegato" modelAttribute="impForm">
 
 		<h4>Inserisci il nome dell'impiegato</h4>
-		<input type="text" name="nome" /> <br> <br> <input
-			type="submit" value="Conferma" /> <br>
-			</form>
-			
-		---------------------------------------------------------------------------
-		
-		<h2>Cerca impiegato tramite il cognome</h2>
-		
-		<form action="${pageContext.request.contextPath}/ImpiegatoServlet" method="post">
+		<form:input type="text" class="form-control" placeholder="nome"
+			path="nome" />
 
-		<input type='hidden' name="funzione" value="cercacognome">
+		<input type="submit" value="Conferma" />
+		<br>
 
-		<h4>Inserisci il cognome dell'impiegato</h4>
-		<input type="text" name="cognome" /> <br> <br> <input
-			type="submit" value="Conferma" /> <br>
-			</form>
+	</form:form>
 
-		---------------------------------------------------------------------------
-		
-		<h2>Cerca impiegato tramite il codice fiscale</h2>
-		
-		<form action="${pageContext.request.contextPath}/ImpiegatoServlet" method="post">
+	///////////////////////////////////////////////////////////////////////////////////
 
-		<input type='hidden' name="funzione" value="cercacf">
+	<h2>Cerca impiegato tramite il cognome</h2>
+
+	<form:form class="form-horizontal" method="POST"
+		action="Searchcognomeimpiegato" modelAttribute="impForm">
 
 		<h4>Inserisci il cognome dell'impiegato</h4>
-		<input type="text" name="cf" /> <br> <br> <input
-			type="submit" value="Conferma" /> <br>
-			</form>
+		<form:input type="text" class="form-control" placeholder="cognome"
+			path="cognome" />
 
-		---------------------------------------------------------------------------
+		<br>
+		<br>
+		<input type="submit" value="Conferma" />
+		<br>
+	</form:form>
 
-		<h2>Crea nuovo impiegato</h2>
-		
-		<form action="${pageContext.request.contextPath}/esitopositivo.jsp" method="post">
+	///////////////////////////////////////////////////////////////////////////////////
 
+	<h2>Cerca impiegato tramite il codice fiscale</h2>
 
-		<input type='hidden' name="funzione" value="inserisci">
+	<form:form class="form-horizontal" method="POST"
+		action="Searchcfimpiegato" modelAttribute="impForm">
+
+		<h4>Inserisci il cognome dell'impiegato</h4>
+		<form:input type="text" class="form-control"
+			placeholder="codice fiscale" path="cf" />
+
+		<br>
+		<br>
+		<input type="submit" value="Conferma" />
+		<br>
+	</form:form>
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+	<h2>Crea nuovo impiegato</h2>
+
+	<form:form class="form-horizontal" method="POST"
+		action="Insertimpiegato" modelAttribute="impForm">
 
 		<h4>Inserisci codice fiscale</h4>
-		<input type="text" name="cf" /> <br>
+		<form:input type="text" class="form-control"
+			placeholder="codice fiscale" path="cf" />
+		<br>
 
 		<h4>Inserisci nome</h4>
-		<input type="text" name="nome" /> <br>
+		<form:input type="text" class="form-control" placeholder="nome"
+			path="nome" />
+		<br>
 
 		<h4>Inserisci cognome</h4>
-		<input type="text" name="cognome" /> <br> <br> <input
-			type="submit" value="Conferma" /> <br>
-			</form>
+		<form:input type="text" class="form-control" placeholder="cognome"
+			path="cognome" />
 
-		---------------------------------------------------------------------------
+		<br>
+		<br>
+		<input type="submit" value="Conferma" />
+		<br>
+	</form:form>
 
-		<h2>Aggiorna impiegato</h2>
-		
-		<form action="${pageContext.request.contextPath}/esitopositivo.jsp" method="post">
-
-		<input type='hidden' name="funzione" value="aggiorna">
-
-		<h4>Inserisci codice fiscale</h4>
-		<input type="text" name="cf" /> <br>
-
-		<h4>Inserisci nome</h4>
-		<input type="text" name="nome" /> <br>
-
-		<h4>Inserisci cognome</h4>
-		<input type="text" name="cognome" /> <br> <br> <input
-			type="submit" value="Conferma" /> <br>
-			
-			</form>
-
-		---------------------------------------------------------------------------
-		<br> <br>
-		<form action="${pageContext.request.contextPath}/ImpiegatoServlet" method="post">
-		<input type='hidden' name="funzione" value="mostratutti">
-		
-		<input type="submit" value="Mostra tutti gli impiegati" /> <br>
-
-		</form>
-
+	///////////////////////////////////////////////////////////////////////////////////
+	<br>
+	<br>
 	
+	<h2>Qui puoi trovare la lista di tutti gli impiegati registrati</h2>
+
+	<form:form class="form-horizontal" method="POST"
+		action="Mostratuttiimpiegati" modelAttribute="impForm">
+
+		<input type="submit" value="Mostra tutti gli impiegati" />
+		<br>
+
+	</form:form>
+
+
 </body>
 </html>

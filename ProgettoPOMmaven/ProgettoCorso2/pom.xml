@@ -19,7 +19,7 @@
 		<dependency>
 
 			<groupId>proxima</groupId>
-			<artifactId>CorsoClientMaven</artifactId>
+			<artifactId>CorsoClient2</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 
 		</dependency>
